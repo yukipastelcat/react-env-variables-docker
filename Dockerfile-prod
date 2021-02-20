@@ -1,0 +1,14 @@
+FROM node:lts-buster-slim as deps
+WORKDIR /app
+COPY ./yarn.lock ./*.json ./
+COPY ./src ./src
+COPY ./public ./public
+RUN yarn
+RUN yarn build
+
+FROM node:lts-buster-slim as prod
+WORKDIR /app
+COPY --from=deps /app/build build
+EXPOSE 5000
+
+CMD ["npx", "serve", "-s", "build"]

@@ -1,0 +1,20 @@
+services:
+  dev:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      REACT_APP_BASE_API_URL: https://example.com/api
+      REACT_APP_APP_NAME: "Example app name"
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    ports:
+      - "5000:5000"
+    environment:
+      REACT_APP_BASE_API_URL: https://example.com/api
+      REACT_APP_APP_NAME: "Example app name"
