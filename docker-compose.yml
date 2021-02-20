@@ -13,11 +13,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-prod
+      args:
+        - base_api_url=https://example.com/api
+        - app_name=Example app name
     ports:
       - "5000:5000"
-    environment:
-      REACT_APP_BASE_API_URL: https://example.com/api
-      REACT_APP_APP_NAME: "Example app name"
   env:
     build:
       context: .

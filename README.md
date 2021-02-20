@@ -1,5 +1,5 @@
-This repository demonstrates the problem with environment 
-variables when using `react-scripts build` inside Docker environment.
+This repository demonstrates working with environment 
+variables when using `react-scripts build` inside Docker container.
 
 To run:
 

@@ -3,6 +3,9 @@ WORKDIR /app
 COPY ./yarn.lock ./*.json ./
 COPY ./src ./src
 COPY ./public ./public
+ARG app_name
+ENV REACT_APP_APP_NAME=$app_name
+ENV REACT_APP_BASE_API_URL=$base_api_url
 RUN yarn
 RUN yarn build
 
